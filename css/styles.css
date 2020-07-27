@@ -1,0 +1,13 @@
+.chart-wrap {
+    max-width: 50%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+
+h1 {
+    text-align: center;
+}

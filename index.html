@@ -1,0 +1,183 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/apexcharts.css">
+    </head>
+<body>
+    <h1>JS Charts Experiment by ZacKenichi</h1>
+    <h3>The clients website is now found for 633 number of keywords in a Google search versus 240 previously. </h3>
+    <!-- <div class="chart-wrap"> -->
+        <div id="keywords-chart">
+        </div>
+    <!-- </div> -->
+
+    <script src="js/apexcharts.js"></script>
+    <!-- insert graph coding here -->
+    <script>
+        var options = {
+          series: [{
+          name: 'Top 3',
+          data: [11, 14, 15, 19, 17, 13, 16, 14, 12, 19, 22, 21]
+        }, {
+          name: '4-10',
+          data: [16, 19 , 20 , 23, 23, 36, 47, 37, 34, 38, 36, 37]
+        }, {
+          name: '11-20',
+          data: [43, 39, 48, 49, 47, 74, 102, 43, 32, 67, 75, 71]
+        }, {
+          name: '21-50',
+          data: [136, 158, 179, 195, 198, 245, 222, 178, 165, 266, 278, 257]
+        }, {
+          name: '51-100',
+          data: [210, 203, 250, 301, 275, 325, 301, 271, 273, 383, 374, 370]
+        }],
+          chart: {
+          type: 'bar',
+          height: 350,
+          stacked: true,
+          toolbar: {
+            show: false
+          },
+          zoom: {
+            enabled: false
+          }
+        },
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            legend: {
+              position: 'bottom',
+              offsetX: -10,
+              offsetY: 0
+            }
+          }
+        }],
+        plotOptions: {
+          bar: {
+            horizontal: false,
+          },
+        },
+        xaxis: {
+          categories: ['AUG 2019', 'SEP 2019', 'OCT 2019', 'NOV 2019',
+          'DEC 2019', 'JAN 2020', 'FEB 2020', 'MAR 2020',
+          'APR 2020', 'MAY 2020', 'JUN 2020', 'JUL 2020'
+          ],
+          
+        },
+        legend: {
+          position: 'top',
+          offsetY: 10
+        },
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          shared: true,
+          intersect: false,
+          followCursor: true,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(0) + " keywords";
+              }
+              return y;
+        
+            }
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#keywords-chart"), options);
+        chart.render();
+    </script>
+
+    <h3>The client is ranking number 1 for ‘removalists Perth’ within 11 months.</h3>
+    <img src="img/removalist.png">
+    <!-- line -->
+    <h3>Since the beginning of the project the client’s online leads have increased by 92% (from 206 to 395 on average, monthly)</h3>
+    <div id="leads-chart"></div>
+    <script>
+        var options = {
+          series: [{
+            name: "Quote Requests(SEO)",
+            data: [102, 115,114,118,135,157,103,159,121,137,80,143,194]
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          toolbar: {
+            show: false
+          },
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['JUN 2019', 'JUL 2019', 'AUG 2019','SEP 2019','OCT 2019','NOV 2019','DEC 2019','JAN 2020','FEB 2020','MAR 2020','APR 2020','MAY 2020','JUN 2020'],
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#leads-chart"), options);
+        chart.render();
+      
+    </script>
+    <!-- pie -->
+    <h3>25% of quote requests come from Google local pack and Google My Business</h3>
+        <div id="quote-chart">
+        </div>
+            <script>
+            var options = {
+                colors:['#FF0000', '#008000', '#0000FF','#000080','#000000','#00FF00','#808080'],
+                series: [7.72, 16.85, 16.14,14.29, 7.58, 5.00,32.42],
+                // series: [1215, 374,61,15,5,],
+                chart: {
+                width: 380,
+                type: 'pie',
+              },
+              tooltip: {
+          shared: true,
+          intersect: false,
+          followCursor: true,
+          y: {
+            formatter: function (y) {
+              if (typeof y !== "undefined") {
+                return y.toFixed(0) + "%";
+              }
+              return y;
+        
+            }
+          }
+        },
+              labels: ['Google local pack', 'Google My Business', 'Bing', 'Yahoo', 'Duckduckgo', 'Ask','Other'],
+              responsive: [{
+                breakpoint: 480,
+                options: {
+                  chart: {
+                    width: 200
+                  },
+                  legend: {
+                    position: 'bottom'
+                  }
+                }
+              }]
+              };
+      
+              var chart = new ApexCharts(document.querySelector("#quote-chart"), options);
+              chart.render();
+            </script>
+            
+        
+    </body>
+</html>
